@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Register!{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('SuccessMsg') %}
+    <div class="flash-notice txt-color">
+        {{ message }}
+    </div>
+{% endfor %}
+<h1 class="txt-color"> Nous Contacter </h1>
+{{form(form)}}
+
+
+{% endblock %}

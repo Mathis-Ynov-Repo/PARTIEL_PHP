@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{%block title %} {{ parent() }} 
+{% endblock %}
+{% block body %}
+{% for message in app.flashes('SuccessMsg') %}
+    <div class="flash-notice txt-align">
+        {{ message }}
+    </div>
+{% endfor %}
+<h1 class="txt-align"> Nous Contacter </h1>
+{{form(form)}}
+
+
+{% endblock %}
+{% block stylesheets %}
+{{parent()}}
+<style>
+#advert {
+    display: flex;
+    align-items : center;
+    justify-content : center;
+    flex-direction : column
+}
+.txt-align {
+    text-align : center;
+}
+#advert > div {
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center
+}
+#advert > div > label {
+    color : black;
+}
+.flash-notice {
+    background-color : green;
+}
+</style>
+{% endblock %}
