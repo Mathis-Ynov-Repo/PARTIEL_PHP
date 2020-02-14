@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Advert;
 use App\Form\Advert1Type;
+use App\Form\AdvertType;
 use App\Repository\AdvertRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +32,7 @@ class AdvertController extends AbstractController
     public function new(Request $request): Response
     {
         $advert = new Advert();
-        $form = $this->createForm(Advert1Type::class, $advert);
+        $form = $this->createForm(AdvertType::class, $advert);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +64,7 @@ class AdvertController extends AbstractController
      */
     public function edit(Request $request, Advert $advert): Response
     {
-        $form = $this->createForm(Advert1Type::class, $advert);
+        $form = $this->createForm(AdvertType::class, $advert);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
